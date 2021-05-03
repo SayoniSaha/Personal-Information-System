@@ -9,9 +9,9 @@ import java.sql.Statement;
 
 public class Database {
     Connection conn;
-    public static String insertStatement = "insert into `MyInformation`(`Name`,PhoneNo,Age,`Email`,`Address`,`BloodGroup`,`DOB`,`Gender`,`Qualification`,`LongTermIllness`,AadhaarNo,`PancardNo`) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+    public static String insertStatement = "insert into `MyInformation`(`Name`,`PhoneNo`,Age,`Email`,`Address`,`BloodGroup`,`DOB`,`Gender`,`Qualification`,`LongTermIllness`,`AadhaarNo`,`PancardNo`) values(?,?,?,?,?,?,?,?,?,?,?,?)";
     public static String printInformation = "select * from `MyInformation`";
-    public static String updateAge = "update `MyInformation` set Age=DATEDIFF(yy, DOB, getDate())";
+    public static String updateAge = "update `MyInformation` set Age=?";
 
     final static String ANSI_RESET = "\u001B[0m";
     final static String ANSI_BLACK = "\u001B[30m";
@@ -41,16 +41,16 @@ public class Database {
         try {
             PreparedStatement statement = this.conn.prepareStatement(insertStatement);
             statement.setString(1, std.Name);
-            statement.setInt(2, std.PhoneNo);
+            statement.setString(2, std.PhoneNo);
             statement.setInt(3, std.Age);
             statement.setString(4, std.Email);
             statement.setString(5, std.Address);
             statement.setString(6, std.BloodGroup);
-            statement.setDate(7, std.DOB);
+            statement.setString(7, std.DOB);
             statement.setString(8, std.Gender);
             statement.setString(9, std.Qualification);
             statement.setString(10, std.LongTermIllness);
-            statement.setInt(11, std.AadhaarNo);
+            statement.setString(11, std.AadhaarNo);
             statement.setString(12, std.PancardNo);
             int rows = statement.executeUpdate();
             return rows > 0 ? true : false;
@@ -67,7 +67,8 @@ public class Database {
     }
 
     public boolean handleUpdate(int Age) throws SQLException {
-        PreparedStatement statement = this.conn.prepareStatement(updateAge);
+        PreparedStatement statement = this.conn.prepareStatement(updateAge); 
+        statement.setInt(1,Age);
         return statement.executeUpdate() > 0 ? true : false;
     }
 
@@ -89,7 +90,7 @@ public class Database {
                 System.out.println(ANSI_YELLOW + " Email : " + res.getString("Email") + ANSI_RESET);
                 System.out.println(ANSI_YELLOW + " Address :" + res.getString("Address") + ANSI_RESET);
                 System.out.println(ANSI_YELLOW + " Blood Group :" + res.getString("BloodGroup") + ANSI_RESET);
-                System.out.println(ANSI_YELLOW + " Date of Birth :" + res.getDate("DOB") + ANSI_RESET);
+                System.out.println(ANSI_YELLOW + " Date of Birth :" + res.getString("DOB") + ANSI_RESET);
                 System.out.println(ANSI_YELLOW + " Gender :" + res.getString("Gender") + ANSI_RESET);
                 System.out.println(ANSI_YELLOW + " Qualification :" + res.getString("Qualification") + ANSI_RESET);
                 System.out.println(ANSI_YELLOW + " Long Term Illeness :" + res.getString("LongTermIllness") + ANSI_RESET);
