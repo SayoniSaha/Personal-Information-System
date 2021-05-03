@@ -1,20 +1,20 @@
 // import java.util.*;
-import java.sql.Date;
+// import java.sql.Date;
 
 public class MyInformation {
-    int PhoneNo, Age, AadhaarNo;
-    String Name, Email, Address, BloodGroup, Qualification, Gender, LongTermIllness,PancardNo;
-    Date DOB;
+    int Age;
+    String Name, PhoneNo, Email, Address, BloodGroup, Qualification, Gender, LongTermIllness, AadhaarNo, PancardNo;
+    String DOB;
 
-    MyInformation(String Name, int PhoneNo, int Age, String Email, String Address, String BloodGroup, java.util.Date DOB,
-            String Gender, String Qualification, String LongTermIllness, int AadhaarNo, String PancardNo) {
+    MyInformation(String Name, String PhoneNo, int Age, String Email, String Address, String BloodGroup, String DOB,
+            String Gender, String Qualification, String LongTermIllness, String AadhaarNo, String PancardNo) {
         this.Name = Name;
         this.PhoneNo = PhoneNo;
         this.Age = Age;
         this.Email = Email;
         this.Address = Address;
         this.BloodGroup = BloodGroup;
-        this.DOB = (Date) DOB;
+        this.DOB = DOB;
         this.Gender = Gender;
         this.Qualification = Qualification;
         this.LongTermIllness = LongTermIllness;

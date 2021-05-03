@@ -2,9 +2,9 @@ import java.sql.SQLException;
 import java.text.ParseException;
 // import java.sql.Connection;
 // import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
+// import java.text.SimpleDateFormat;
 // import java.text.DateFormat;
-import java.util.*;
+// import java.util.*;
 import java.io.*;
 
 class Management {
@@ -19,9 +19,9 @@ class Management {
 
     // MyInformation
     // Datas======================================================================
-    public static String Name, Email, Address, BloodGroup, Gender, Qualification, LongTermIllness, PancardNo;
-    public static int PhoneNo, Age, AadhaarNo;
-    public static Date DOB;
+    public static String Name, PhoneNo, Email, Address, BloodGroup, Gender, Qualification, LongTermIllness, AadhaarNo, PancardNo;
+    public static int Age;
+    public static String DOB;
     static MyInformation std;
     // ===================================================================================
 
@@ -80,7 +80,7 @@ class Management {
         System.out.print(ANSI_CYAN + " Enter Name : " + ANSI_RESET);
         Name = br.readLine();
         System.out.print(ANSI_CYAN + "\n Enter Phone No : " + ANSI_RESET);
-        PhoneNo = Integer.parseInt(br.readLine());
+        PhoneNo = br.readLine();
         System.out.print(ANSI_CYAN + " Enter Age : " + ANSI_RESET);
         Age = Integer.parseInt(br.readLine());
         System.out.print(ANSI_CYAN + " Enter Email : " + ANSI_RESET);
@@ -90,7 +90,7 @@ class Management {
         System.out.print(ANSI_CYAN + " Enter Blood Group : " + ANSI_RESET);
         BloodGroup = br.readLine();
         System.out.print(ANSI_CYAN + " Enter Date of Birth : " + ANSI_RESET);
-        DOB = new SimpleDateFormat("dd/mm/yyyy").parse(null);
+        DOB = br.readLine();
         System.out.print(ANSI_CYAN + " Enter Gender : " + ANSI_RESET);
         Gender = br.readLine();
         System.out.print(ANSI_CYAN + " Enter Qualification : " + ANSI_RESET);
@@ -98,7 +98,7 @@ class Management {
         System.out.print(ANSI_CYAN + " Enter Long Term Illness : " + ANSI_RESET);
         LongTermIllness = br.readLine();
         System.out.print(ANSI_CYAN + " Enter Aadhaar No : " + ANSI_RESET);
-        AadhaarNo = Integer.parseInt(br.readLine());
+        AadhaarNo = br.readLine();
         System.out.print(ANSI_CYAN + " Enter Pancard No : " + ANSI_RESET);
         PancardNo = br.readLine();
         std = new MyInformation(Name,PhoneNo,Age,Email,Address,BloodGroup,DOB,Gender,Qualification,LongTermIllness,AadhaarNo,PancardNo);
