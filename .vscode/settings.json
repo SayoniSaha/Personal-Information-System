@@ -5,6 +5,6 @@
     ],
     "java.configuration.updateBuildConfiguration": "automatic",
     "java.project.sourcePaths": [
-        "Management"
+        ""
     ]
 }
