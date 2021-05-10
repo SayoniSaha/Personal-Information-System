@@ -1,0 +1,12 @@
+=====================================================MySQL=====================================================
+
+==========Database Creation==========
+
+create database MyInformation;
+use MyInformation;
+create table MyInformation(Name varchar(50),PhoneNo varchar(50),Age int,Email varchar(50),Address varchar(50),BloodGroup varchar(50),DOB varchar(50),Qualification varchar(50),LongTermIllness varchar(50),AadhaarNo varchar(50),PancardNo varchar(50));
+
+==========Connection Grant Commands===========
+
+create user 'user'@'localhost' identified by 'pass';
+grant all privileges on MyInformation to 'user'@'localhost';
