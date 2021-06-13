@@ -10,7 +10,7 @@ http://maven.apache.org/xsd/maven-4.0.0 .xsd">
   <configuration>  
     <archive>  
       <manifest>  
-        <mainClass>com.Management.main</mainClass>  
+        <mainClass>{classpath}</mainClass>  
       </manifest>  
     </archive>  
   </configuration> 
